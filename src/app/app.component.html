@@ -1,7 +1,18 @@
 <div class="text-center">
   <img src="../assets/logo-chronometre-en-ligne.png" alt="Logo chrono">
 </div>
-<div class="form-control text-center mt-5 mb-3">00:00:00.000</div>
+<div class="form-control text-center mt-5 mb-3">{{ time }}</div>
 <div class="text-center">
-  <button class="btn btn-success">Démarrer</button>
+  
+  <ng-container *ngIf="!chronoOn; else elseTemplate">
+    <button class="btn btn-success" (click)="startChrono()">Démarrer</button>
+    
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button class="btn btn-danger" (click)="stopChrono()">Arrêter</button>
+    <button class="btn btn-primary">Retenir</button>
+    
+  </ng-template>
+  
 </div>
+<ul></ul>
