@@ -1,0 +1,18 @@
+#display-time{
+    margin: 30px auto;
+}
+#display-time > .form-control{
+    border: solid 2px #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: roboto;
+    box-shadow: 2px 14px 11px 8px rgba(0,0,0,0.75);
+    background-color: rgb(235, 235, 235);
+}
+#display-button button{
+    margin: 15px !important;
+    border: solid 2px #ccc !important;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px 5px rgba(0,0,0,0.75);
+}
