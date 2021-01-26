@@ -1,7 +1,8 @@
 <div class="text-center">
-  <img src="../assets/logo-chronometre-en-ligne.png" alt="Logo chrono">
+  <img src="../assets/logo-chronometre-en-ligne.png" alt="Logo chrono" 
+  class="img-fluid" id="logo-chrono">
 </div>
-<div class="col-md-10 text-center" id="display-time">
+<div class="col-md text-center" id="display-time">
   <div class="form-control">
     <!-- Time : {{ time/1000 | number:'2.3-3' }} <br> -->
     Minutes : {{ minutes.toString().padStart(2, '0')  }} / 

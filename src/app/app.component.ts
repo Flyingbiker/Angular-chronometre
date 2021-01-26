@@ -10,7 +10,7 @@ import { ChronoItem } from './chrono';
 export class AppComponent {
   title = 'stopwatch';
 
-  public timeNow : number |null =0;  
+  public timeNow : number |null =null;  
   public time : number = 0;  
   public miliSeconds : number = 0;  
   public seconds : number = 0;  
@@ -29,11 +29,10 @@ export class AppComponent {
     return this.time;
   }
   
-  public actualiseChrono() : void {
+  public actualiseChrono() : void {    
     this.chrono = setInterval(()=>{
-      this.time = Date.now() - this.timeNow;
-      this.miliSeconds = Math.floor((this.time) % 100);
-      this.miliSeconds.toString().padStart(2, '0');
+      this.time = Date.now() - this.timeNow;      
+      this.miliSeconds = Math.floor((this.time) % 1000);      
       this.seconds = Math.floor((this.time / 1000) % 60);
       this.minutes = Math.floor((this.time / 60 / 1000) % 60);
       }, 10);
@@ -53,6 +52,7 @@ export class AppComponent {
 
   public restartChrono(){
     this.isPaused = false; 
+    this.timeNow = Date.now() -this.time;
     this.actualiseChrono(); 
   }
 
@@ -80,9 +80,10 @@ export class AppComponent {
     this.isPaused = false;
   }
 
-  public clearTimeHold(index : number) : Array<object> {
-    this.arrayTime.splice(index,1);
-    return this.arrayTime;
+  public clearTimeHold(index : number) : void {
+    if (index >=0 && index < this.arrayTime.length){
+      this.arrayTime.splice(index,1);
+    }    
   }
 
   public addNoteTime($event : KeyboardEvent, object :ChronoItem): void {
