@@ -71,11 +71,13 @@ export class AppComponent {
 
   public clearChrono(){
     this.chronoOn = false;
+    this.pauseChrono();    
     this.time = 0;
     this.miliSeconds = 0;
     this.seconds = 0;
     this.minutes = 0;   
     this.arrayTime = [] ;
+    this.isPaused = false;
   }
 
   public clearTimeHold(index : number) : Array<object> {
