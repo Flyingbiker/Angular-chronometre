@@ -84,14 +84,12 @@ export class AppComponent {
   }
 
   public addNoteTime($event : KeyboardEvent, object :ChronoItem): void {
-    if ($event.code === 'Enter'){
-      const $input : EventTarget | null = $event.target;
-      if ( $input instanceof HTMLInputElement) {
-        console.log($input.value);
-        const stringInput = $input.value.trim();
-        if (stringInput !== ''){
-          object.note = stringInput;
-        }
+    const $input : EventTarget | null = $event.target;
+    if ( $input instanceof HTMLInputElement) {
+      console.log($input.value);
+      const stringInput = $input.value.trim();
+      if (stringInput !== ''){
+        object.note = stringInput;
       }
     }
   }

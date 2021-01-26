@@ -44,9 +44,10 @@
           </td>
           <td>
             <div class="form-group">
-              <input type="text" class="form-control" (keyup)="addNoteTime($event, time)">
+              <input type="text" class="form-control" (focusout)="addNoteTime($event, time)">
             </div>
           </td>
+          <td *ngIf="time.note">Note ajoutée</td>
         </tr>     
       </tbody>
     </table>
