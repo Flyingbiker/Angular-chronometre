@@ -55,6 +55,9 @@
               <!-- input lance l'event lorsqu'il y a un ajout -->
               <!-- focusout lance l'event lorsque le champs n'est plus actif -->
               <input type="text" class="form-control" (input)="addNoteTime($event, time)">
+              <!-- Autre solution avec le formControl
+                <input type="text" class="form-control" [(ngModel)]="time.note"> 
+              -->
             </div>
           </td>
           <td *ngIf="time.note">Note ajoutée</td>
