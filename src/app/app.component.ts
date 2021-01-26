@@ -63,7 +63,8 @@ export class AppComponent {
     this.time = 0;
     this.miliSeconds = 0;
     this.seconds = 0;
-    this.minutes = 0;    
+    this.minutes = 0;   
+    this.arrayTime = [] ;
   }
 
   public clearTimeHold(index : number) : Array<object> {
