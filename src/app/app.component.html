@@ -2,7 +2,7 @@
   <img src="../assets/logo-chronometre-en-ligne.png" alt="Logo chrono">
 </div>
 <div class="form-control text-center mt-5 mb-3">
-  Minutes : {{ minutes }} / Secondes : {{ seconds }} / Milisecondes : {{ miliSeconds }}
+  Minutes : {{ minutes.toString().padStart(2, '0') }} / Secondes : {{ seconds.toString().padStart(2, '0') }} / Milisecondes : {{ miliSeconds.toString().padStart(2, '0') }}
 </div>
 <div class="text-center">
 
@@ -14,7 +14,7 @@
     <button class="btn btn-primary" (click)="holdTime()">Retenir</button> 
   </div>
   <div *ngIf="chronoOn && isPaused">
-    <button class="btn btn-danger" (click)="startChrono()">Poursuivre</button>
+    <button class="btn btn-danger" (click)="restartChrono()">Poursuivre</button>
     <button class="btn btn-primary" (click)="clearChrono()">Arrêter</button>    
   </div>  
   

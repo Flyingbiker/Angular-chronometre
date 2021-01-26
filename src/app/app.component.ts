@@ -25,14 +25,18 @@ export class AppComponent {
   public startChrono() : number {
     this.timeNow = Date.now();
     this.chronoOn = true; 
-    this.isPaused = false;      
+    this.actualiseChrono();   
+    return this.time;
+  }
+  
+  public actualiseChrono() : void {
     this.chrono = setInterval(()=>{
       this.time = Date.now() - this.timeNow;
       this.miliSeconds = Math.floor((this.time) % 100);
+      this.miliSeconds.toString().padStart(2, '0');
       this.seconds = Math.floor((this.time / 1000) % 60);
       this.minutes = Math.floor((this.time / 60 / 1000) % 60);
       }, 10);
-    return this.time;
   }
 
   public timeElapsed() : number {
@@ -45,6 +49,11 @@ export class AppComponent {
     if (this.chrono !== null){
       clearInterval(this.chrono);
     }
+  }
+
+  public restartChrono(){
+    this.isPaused = false; 
+    this.actualiseChrono(); 
   }
 
   public holdTime() : Array<object> {
