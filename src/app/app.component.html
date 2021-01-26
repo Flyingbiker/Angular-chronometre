@@ -1,9 +1,12 @@
 <div class="text-center">
   <img src="../assets/logo-chronometre-en-ligne.png" alt="Logo chrono">
 </div>
-<div class="col-md-8 text-center" id="display-time">
+<div class="col-md-10 text-center" id="display-time">
   <div class="form-control">
-    Minutes : {{ minutes.toString().padStart(2, '0') }} / Secondes : {{ seconds.toString().padStart(2, '0') }} / Milisecondes : {{ miliSeconds.toString().padStart(2, '0') }}
+    <!-- Time : {{ time/1000 | number:'2.3-3' }} <br> -->
+    Minutes : {{ minutes.toString().padStart(2, '0')  }} / 
+    Secondes : {{ seconds.toString().padStart(2, '0') }} / 
+    Milisecondes : {{ miliSeconds.toString().padStart(3, '0') }}
   </div>
 </div>
 <div class="text-center" id="display-button">
