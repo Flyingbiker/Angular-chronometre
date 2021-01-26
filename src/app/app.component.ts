@@ -9,7 +9,8 @@ import { ChronoItem } from './chrono';
 })
 export class AppComponent {
   title = 'stopwatch';
-  
+
+  public timeNow : number |null =0;  
   public time : number = 0;  
   public miliSeconds : number = 0;  
   public seconds : number = 0;  
@@ -22,13 +23,14 @@ export class AppComponent {
   public arrayTime : Array<ChronoItem> = [];
   
   public startChrono() : number {
+    this.timeNow = Date.now();
     this.chronoOn = true; 
     this.isPaused = false;      
     this.chrono = setInterval(()=>{
-      this.time += 1;
-      this.miliSeconds = this.time % 100;
-      this.seconds = Math.floor((this.time / 100) % 60);
-      this.minutes = Math.floor((this.time / 60 / 100) % 60);
+      this.time = Date.now() - this.timeNow;
+      this.miliSeconds = Math.floor((this.time) % 100);
+      this.seconds = Math.floor((this.time / 1000) % 60);
+      this.minutes = Math.floor((this.time / 60 / 1000) % 60);
       }, 10);
     return this.time;
   }
